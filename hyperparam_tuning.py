@@ -30,10 +30,7 @@ def get_dsets(config):
 def load_data(config):
     trset, vlset = get_dsets(config)
 
-    # WeightedRandomSampler, should reduce unbalancing of dataset
-    #class_sample_count = torch.bincount(trset.tensor_label.int(), minlength=NUM_CLASSES)
-    #weights = 1. / class_sample_count
-    #samples = sampler.WeightedRandomSampler(weights, num_samples=NUM_SAMPLES)
+
     trload = DataLoader(trset, batch_size=config["batch_size"], num_workers=1, shuffle=True)
     vlload = DataLoader(vlset, 1, num_workers=1)
     return trload, vlload
@@ -41,8 +38,6 @@ def load_data(config):
 
 # get the model to use
 def get_model():
-    # os.environ['TORCH_HOME'] = 'D:/progetto/pelillo'
-    # init model as  vgg16 pretrained on imagnet
     model = vgg16(weights=VGG16_Weights.DEFAULT)
     output_ftrs = NUM_CLASSES
     # change the fully connected layer with one for our purpose
@@ -195,9 +190,9 @@ if __name__ == "__main__":
 
     # to do test
     test_config = {"batch_size": 1,
-                   "csv_dir": "/Users/mattia/Desktop/AgeDetector/Train.csv",
-                   "train_img": "/Users/mattia/Desktop/AgeDetector/train/",
-                   "vali_img": "/Users/mattia/Desktop/AgeDetector/vali/",
+                   "csv_dir": "/Train.csv",
+                   "train_img": "/train/",
+                   "vali_img": "/validation/",
                    }
     my_model = get_model()
     my_model.load_state_dict(torch.load(PATH, map_location='cpu'))
