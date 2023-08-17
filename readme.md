@@ -18,4 +18,4 @@ TOP K   10classes   20classes   101classes\
 2       0.6923      0.2308      0.0000\
 3		    0.7692		  0.4615      0.0000
 
-
+In the tl_fl.ipynb is a version made with tensorflow, but we does transfer learning and fine-tuning on Resnet50.
