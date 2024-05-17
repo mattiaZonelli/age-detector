@@ -21,4 +21,4 @@ TOP K   10classes   20classes   101classes\
 
 
 
-**In the tl_fl.ipynb is a version made with tensorflow, but we does transfer learning and fine-tuning on Resnet50.**\
+**In the tl_fl.ipynb there is a version made with tensorflow, but we does transfer learning and fine-tuning on Resnet50.**
